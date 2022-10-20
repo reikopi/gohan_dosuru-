@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_18_140239) do
+ActiveRecord::Schema.define(version: 2022_10_19_024712) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string "group_code", null: false
+    t.integer "password", null: false
+    t.string "group_name", null: false
+    t.integer "admin_member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "email", default: "", null: false
