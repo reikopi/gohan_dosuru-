@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_19_024712) do
+ActiveRecord::Schema.define(version: 2022_10_23_133510) do
 
   create_table "groups", force: :cascade do |t|
     t.string "group_code", null: false
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(version: 2022_10_19_024712) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+  end
+
+  create_table "myschedules", force: :cascade do |t|
+    t.date "date", null: false
+    t.string "morning_select"
+    t.string "lunch_select"
+    t.string "dinner_select"
+    t.text "supplement"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shares", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
