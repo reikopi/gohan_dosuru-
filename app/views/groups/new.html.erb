@@ -1,3 +1,12 @@
-<h1>新規Group作成</h1>
+<h1>新規グループ作成</h1>
 
-<% form_with model: @group, %>
+<% form_with model: @group, my_schedules_path do |f| %>
+<p>グループ名</p>
+<%= f.text_field :group_name %>
+<p>グループID</p>
+<%= f.text_field :group_code %>
+<p>グループパスワード</p>
+<%= f.password_field :password %>
+
+<%= f.submit '新規グループを作成する', class:"btn btn-success" %>
+<% end %>
