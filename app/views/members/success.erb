@@ -2,11 +2,11 @@
 <p>続けて、groupを作成しますか？</p>
 
 
-<%= link_to '新規groupを作成する', groups_new_path %>
+<%= link_to '新規groupを作成する', new_group_path %>
 <!--どのように参加するか要検討-->
-<%= link_to 'すでにあるgroupへ参加する' %>
+<%= link_to 'すでにあるgroupへ参加する',new_group_path %>
 <!--currentmemberのページにいくようにしたい-->
-<%= link_to 'マイページへ行く', member_path %>
+<%= link_to 'マイページへ行く', members_show_path %>
 
 
 <p>すでにあるgroupへ参加する人は、</br>

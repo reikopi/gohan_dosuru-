@@ -1,6 +1,6 @@
 <h1>新規グループ作成</h1>
 
-<% form_with model: @group, my_schedules_path do |f| %>
+<%= form_with model: @group, url: groups_path, method: :post do |f| %>
 <p>グループ名</p>
 <%= f.text_field :group_name %>
 <p>グループID</p>

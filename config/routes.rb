@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
   # get 'homes/top'
-  
+
   resources :my_schedules, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-  resources :members, only: [:show]
+  # resources :members, only: [:show]
   resources :shares, only: [:index, :show]
   resources :groups, only: [:new, :create, :show, :edit, :update, :destroy]
-  get 'members/success' => 'members#success'
 
   devise_for :members,skip: [:passwords], controller: {
     registrations: "registrations",
     sessions: 'sessions'
   }
+  get 'members/success' => 'members#success'
+  get 'members/show' => 'members#show'
+
 
   root to: 'homes#top'
 
