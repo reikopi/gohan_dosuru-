@@ -1,2 +1,26 @@
-<h1>MySchedules#index</h1>
-<p>Find me in app/views/my_schedules/index.html.erb</p>
+<h1>マイスケジュール</h1>
+
+<h4>スケジュール登録</h4>
+<%= form_with model: @my_schedule,url: my_schedules_path, method: :post do |f| %>
+<p>日付を選択</p>
+
+<div class ="input-date">
+                <input name="date" type="date" />
+</div>
+<p>スケジュールを選択</p>
+
+<%= f.submit '確認画面へ進む', class:"btn btn-primary" %>
+<% end %>
+
+
+<!--月ごとの自分のスケジュールカレンダー-->
+<%= month_calendar events: @my_schedules do |date, my_schedules| %>
+<%= date %>
+
+  <% my_schedules.each do |my_schedule| %>
+   <%= my_schedule.morning_select %>
+   <%= my_schedule.lunch_select %>
+   <%= my_schedule.dinner_select %>
+  <% end %>
+<% end %>
+

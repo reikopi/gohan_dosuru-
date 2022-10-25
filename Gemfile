@@ -64,3 +64,4 @@ gem 'net-imap'
 
 gem 'rename'
 
+gem "simple_calendar", "~> 2.0"
