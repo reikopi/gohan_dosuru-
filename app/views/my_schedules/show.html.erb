@@ -1,2 +1,10 @@
-<h1>MySchedules#show</h1>
-<p>Find me in app/views/my_schedules/show.html.erb</p>
+<h1>◯◯のスケジュール詳細</h1>
+<p>日付</p>
+<%= @my_schedule.start_date %>
+<p>スケジュール</p>
+<%= @my_schedule.morning_select %>
+<%= @my_schedule.lunch_select %>
+<%= @my_schedule.dinner_select %>
+<p>コメント</p>
+<%= @my_schedule.supplement %>
+

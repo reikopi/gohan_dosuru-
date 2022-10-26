@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2022_10_23_133510) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
-  create_table "myschedules", force: :cascade do |t|
-    t.date "date", null: false
+  create_table "my_schedules", force: :cascade do |t|
+    t.date "start_date", null: false
     t.string "morning_select"
     t.string "lunch_select"
     t.string "dinner_select"
