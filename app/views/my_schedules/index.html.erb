@@ -1,16 +1,42 @@
+<!--・自分のスケジュールの確認-->
+<!--・スケジュールの登録-->
+<!--をするページ-->
+
 <h1>マイスケジュール</h1>
 
+<!--スケジュールを登録する機能-->
 <h4>スケジュール登録</h4>
 <%= form_with model: @my_schedule do |f| %>
+
 <p>日付を選択</p>
-
-
 <div class ="input-date">
-                <input name="start_date" type="date" />
+  <input name="start_date" type="date" />
 </div>
+
 <p>スケジュールを選択</p>
+<p>◆朝食はいる？</p>
+<%= f.radio_button :morning_select, true %>
+<%= f.label :morning_select, "必要" %>
+<%= f.radio_button :morning_select, false %>
+<%= f.label :morning_select, "不要" %>
+
+<p>◆昼食はいる？</p>
+<%= f.radio_button :lunch_select, true %>
+<%= f.label :lunch_select, "必要" %>
+<%= f.radio_button :lunch_select, false %>
+<%= f.label :lunch_select, "不要" %>
+
+<p>◆夕食はいる？</p>
+<%= f.radio_button :dinner_select, true %>
+<%= f.label :dinner_select, "必要" %>
+<%= f.radio_button :dinner_select, false %>
+<%= f.label :dinner_select, "不要" %>
+
+<p>◆コメント記入</p>
 <%= f.text_area :supplement %>
-<%= f.submit '確認画面へ進む', class:"btn btn-primary" %>
+
+<!--スケジュールの登録-->
+<%= f.submit 'スケジュールを登録する', class:"btn btn-primary" %>
 <% end %>
 
 
