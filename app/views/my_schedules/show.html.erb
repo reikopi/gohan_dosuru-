@@ -1,10 +1,27 @@
-<h1>member.nameのスケジュール詳細</h1>
-<p>日付</p>
-<%= @my_schedule.start_date %>
-<p>スケジュール</p>
-<%= @my_schedule.morning_select %>
-<%= @my_schedule.lunch_select %>
-<%= @my_schedule.dinner_select %>
-<p>コメント</p>
-<%= @my_schedule.supplement %>
+<h1><%= @member.name %>のスケジュール詳細</h1>
 
+<table class="table table-bordered">
+    <tbody>
+
+    <tr>
+        <th>日付</th>
+        <th><%= @my_schedule.start_date %></th>
+    </tr>
+
+    <tr>
+        <th>スケジュール</th>
+        <th>
+            <%= @my_schedule.morning_select %></br>
+            <%= @my_schedule.lunch_select %></br>
+            <%= @my_schedule.dinner_select %>
+        </th>
+    </tr>
+
+    <tr>
+        <th>コメント</th>
+        <th><%= @my_schedule.supplement %></th>
+    </tr>
+　　 </tbody>
+</table>
+
+<h4>みんなからのメッセージ</h4>

@@ -10,15 +10,18 @@
 
 <p>日付を選択</p>
 <div class ="input-date">
-  <input name="start_date" type="date" />
+  <%= f.date_field :start_date %>
 </div>
 
 <p>スケジュールを選択</p>
 <p>◆朝食はいる？</p>
-<%= f.radio_button :morning_select, true %>
-<%= f.label :morning_select, "必要" %>
-<%= f.radio_button :morning_select, false %>
-<%= f.label :morning_select, "不要" %>
+<div name="morning_select">
+  <%= f.radio_button :morning_select, true %>
+  <%= f.label :morning_select, "必要" %>
+  <%= f.radio_button :morning_select, false %>
+  <%= f.label :morning_select, "不要" %>
+</div>
+
 
 <p>◆昼食はいる？</p>
 <%= f.radio_button :lunch_select, true %>
@@ -42,13 +45,13 @@
 
 <!--月ごとの自分のスケジュールカレンダー-->
 <%= month_calendar do |date| %>
-<%= date.day %>
-
-  <% @my_schedules.each do |my_schedule| %>
-   <%= my_schedule.morning_select %>
-   <%= my_schedule.lunch_select %>
-   <%= my_schedule.dinner_select %>
-   <%= my_schedule.supplement %>
+  <%= date.day %>
+  <% my_schedules = @my_schedules.search_schedule(date) %>
+  <% my_schedules.each do |my_schedule| %>
+    <%= my_schedule.morning_select %>
+    <%= my_schedule.lunch_select %>
+    <%= my_schedule.dinner_select %>
+    <%= my_schedule.supplement %>
   <% end %>
 <% end %>
 

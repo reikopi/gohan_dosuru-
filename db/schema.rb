@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_23_133510) do
+ActiveRecord::Schema.define(version: 2022_10_23_131158) do
 
   create_table "groups", force: :cascade do |t|
     t.string "group_code", null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_10_23_133510) do
   end
 
   create_table "members", force: :cascade do |t|
+    t.integer "group_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
@@ -32,22 +33,22 @@ ActiveRecord::Schema.define(version: 2022_10_23_133510) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["group_id"], name: "index_members_on_group_id"
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
   create_table "my_schedules", force: :cascade do |t|
+    t.integer "member_id"
     t.date "start_date", null: false
-    t.string "morning_select"
-    t.string "lunch_select"
-    t.string "dinner_select"
+    t.boolean "morning_select", default: false, null: false
+    t.boolean "lunch_select", default: false, null: false
+    t.boolean "dinner_select", default: false, null: false
     t.text "supplement"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_my_schedules_on_member_id"
   end
 
-  create_table "shares", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
+  add_foreign_key "members", "groups"
+  add_foreign_key "my_schedules", "members"
 end
