@@ -1,7 +1,7 @@
 class MySchedulesController < ApplicationController
   def index
     # 他人のデータまで表示されるので、memberと紐づける必要あり
-    @my_schedules = MySchedule.all
+    @my_schedules = current_member.my_schedules
     @my_schedule = MySchedule.new
   end
 

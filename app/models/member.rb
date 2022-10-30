@@ -4,7 +4,7 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :group
+  belongs_to :group, optional: true
   has_many :my_schedules, dependent: :destroy
 
 

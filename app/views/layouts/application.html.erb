@@ -19,8 +19,9 @@
       <!--<li><= link_to "グループ情報を見る", group_path(current_group.id) %></li>-->
       <li><%= link_to "マイページ", members_show_path %></li>
       <li><%= link_to "マイスケジュール", my_schedules_path %></li>
-      <li><%= link_to "みんなの予定", shares_path %></li>
-      <li><%= link_to "ログアウトこれから" %></li>
+      <li><%= link_to "みんなの予定", groups_path %></li>
+      <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
+
       <% else %>
       <!--メンバーログアウト後のヘッダー-->
       <li><%= link_to "メンバーログイン", new_member_session_path %></li>
