@@ -8,6 +8,10 @@ class HomesController < ApplicationController
     @my_schedules = MySchedule.all
   end
 
+  def schedule_details
+    @my_schedule = MySchedule.all
+  end
+
   private
 
   def correct_user
