@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
     if @group.save
       current_member.update(group_id: @group.id)
     # グループのスケジュール共有ページへいく
-      redirect_to groups_path
+      redirect_to members_schedules_path, notice: 'グループを作成しました'
     else
       render :new
     end

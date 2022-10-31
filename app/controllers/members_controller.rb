@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   before_action :correct_user
-  
+
   def show
     @member = current_member
   end
@@ -8,11 +8,11 @@ class MembersController < ApplicationController
   def success
 
   end
-  
+
   private
-  
+
   def correct_user
-    # すでにグループに所属していた場合の処理
+    # すでにグループに所属していた場合の処理と
     # グループに管理者（グループ作成者）が所属していた時の処理
     if current_member.group&.admin_member_id == current_member.id
       redirect_to members_schedules_path

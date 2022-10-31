@@ -1,0 +1,35 @@
+<h1>みんなの予定</h1>
+<%= link_to "予定を登録する", my_schedules_path %>
+
+<%= month_calendar do |date| %>
+  <%= date.day %>
+  <% my_schedules = @my_schedules.search_schedule(date) %>
+  <% my_schedules.each do |my_schedule| %>
+    <p>朝食：<% if my_schedule.morning_select %>
+       <!--trueの場合-->
+       必要
+       <% else %>
+       <!--falseの場合-->
+       不要
+       <% end %>
+    </p>
+    <p>昼食：<% if my_schedule.lunch_select %>
+      <!--trueの場合-->
+       必要
+       <% else %>
+       <!--falseの場合-->
+       不要
+       <% end %>
+    </p>
+    <p>夜食：<% if my_schedule.dinner_select %>
+      <!--trueの場合-->
+       必要
+       <% else %>
+       <!--falseの場合-->
+       不要
+       <% end %>
+    </p>
+
+    <%= my_schedule.supplement %>
+  <% end %>
+<% end %>

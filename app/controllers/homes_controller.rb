@@ -5,6 +5,7 @@ class HomesController < ApplicationController
   end
 
   def schedules
+    @my_schedules = MySchedule.all
   end
 
   private

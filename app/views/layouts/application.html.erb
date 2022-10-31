@@ -16,10 +16,10 @@
     <header>
       <% if member_signed_in? %>
       <!--メンバーサインイン後のヘッダー-->
-      <!--<li><= link_to "グループ情報を見る", group_path(current_group.id) %></li>-->
+      <!--<li><= link_to "グループ情報を見る", group_path(group.id) %></li>-->
       <li><%= link_to "マイページ", members_show_path %></li>
       <li><%= link_to "マイスケジュール", my_schedules_path %></li>
-      <li><%= link_to "みんなの予定", groups_path %></li>
+      <li><%= link_to "みんなの予定", members_schedules_path %></li>
       <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
 
       <% else %>
