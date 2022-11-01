@@ -19,6 +19,17 @@ class GroupsController < ApplicationController
     end
   end
 
+  # 修正する
+  def join
+    @group = Group.find_by(group_id: params[:group_code], password: params[:password])
+    if current_member.join
+       current_member.update(group_id: @group.id)
+       redirect_to members_schedules_path, notice: 'グループに参加しました'
+    else
+       render :join
+    end
+  end
+
   def show
     @group = Group.find(params[:id])
     @group_members = GroupMember.all

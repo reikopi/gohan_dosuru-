@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # resources :members, only: [:show]
   resources :groups, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
+  get "join" => "groups#join"
+  post "join" => "groups#create"
+
+
   devise_for :members,skip: [:passwords], controller: {
     registrations: "registrations",
     sessions: 'sessions'

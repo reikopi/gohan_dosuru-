@@ -6,17 +6,17 @@
   <tbody>
   <tr>
     <th>あなたの名前</th>
-    <th><%= @member.name %></th>
+    <th><%= current_member.name %></th>
     <th></th>
   </tr>
   <tr>
     <th>所属グループ</th>
-    <th><%= @member.group_name %></th>
+    <th><%= @group.group_name %></th>
     <th></th>
   </tr>
   <tr>
     <th>メンバーカラー</th>
-    <th></th>
+    <th><%= current_member.color %></th>
     <th></th>
   </tr>
   </tbody>

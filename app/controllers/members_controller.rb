@@ -1,22 +1,22 @@
 class MembersController < ApplicationController
-  before_action :correct_user
+  # before_action :correct_user
 
   def show
     @member = current_member
+    @group = @member.group
   end
 
   def success
-
-  end
-
-  private
-
-  def correct_user
-    # すでにグループに所属していた場合の処理と
-    # グループに管理者（グループ作成者）が所属していた時の処理
+    # もし管理者がグループを持っていた場合はsuccessページには行かず、スケジュール共有ページへとぶ
     if current_member.group&.admin_member_id == current_member.id
       redirect_to members_schedules_path
+      # もしmemberがグループに所属（グループIDを所持）していれば、successページには行かず、スケジュール共有ページへとぶ
+    elsif current_member.group_id != nil
+      redirect_to members_schedules_path
     end
-    # グループ所属なし、グループ退会済みの場合はsuccessページへいく
   end
+
+
+
+
 end
