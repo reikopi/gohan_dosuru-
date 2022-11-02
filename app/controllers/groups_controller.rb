@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :member_logged_in?
+  before_action :member_logged_in? #メンバーログインしていない場合、不可
 
   def new # 新規グループ作成の入力画面を表示
     @group = Group.new

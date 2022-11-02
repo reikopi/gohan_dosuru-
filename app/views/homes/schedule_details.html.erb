@@ -1,0 +1,34 @@
+<p>"日付情報"の内容</p>
+<!--いろんなメンバーのその日に投稿したスケジュールが見れるようにしたい。-->
+<!--< my_schedules = @my_schedules.search_schedule(date) %>-->
+<!--投稿した日に限定してみんなのスケジュールを表示したい-->
+
+
+  <% @my_schedules.each do |my_schedule| %>
+    <p>メンバー名:<%= my_schedule.member.name %></p>
+    <p>朝食：<% if my_schedule.morning_select %>
+       <!--trueの場合-->
+       必要
+       <% else %>
+       <!--falseの場合-->
+       不要
+       <% end %>
+    </p>
+    <p>昼食：<% if my_schedule.lunch_select %>
+      <!--trueの場合-->
+       必要
+       <% else %>
+       <!--falseの場合-->
+       不要
+       <% end %>
+    </p>
+    <p>夜食：<% if my_schedule.dinner_select %>
+      <!--trueの場合-->
+       必要
+       <% else %>
+       <!--falseの場合-->
+       不要
+       <% end %>
+    </p>
+    <%= my_schedule.supplement %>
+  <% end %>

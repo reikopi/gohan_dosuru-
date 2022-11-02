@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # get 'homes/top'
 
   resources :my_schedules, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-  # resources :members, only: [:show]
   resources :groups, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
   get "join" => "groups#join"

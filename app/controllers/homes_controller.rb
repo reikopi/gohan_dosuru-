@@ -8,8 +8,15 @@ class HomesController < ApplicationController
     @my_schedules = MySchedule.all
   end
 
+#以下不安しかないので質問する。
   def schedule_details
-    @my_schedule = MySchedule.all
+    #特定の日付を探す
+    # @my_schedules = MySchedule.find(date)
+    ##同じ日で登録されたグループ内のスケジュールを全て表示する
+    # @my_schedules = MySchedule.where(start_date: same)
+    #一旦、他の機能を作成するのに全ての投稿を表示しておく
+
+    @my_schedules = MySchedule.all
   end
 
   private
