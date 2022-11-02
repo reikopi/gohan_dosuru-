@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :groups, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
   get "join" => "groups#join"
-  post "join" => "groups#create"
+  post "join" => "groups#current_member_join"
 
 
   devise_for :members,skip: [:passwords], controller: {

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_10_23_131158) do
     t.integer "admin_member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_code"], name: "index_groups_on_group_code", unique: true
   end
 
   create_table "members", force: :cascade do |t|
