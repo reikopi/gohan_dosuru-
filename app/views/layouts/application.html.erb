@@ -30,9 +30,11 @@
         <ul class="navbar-nav mr-auto">
       <!--メンバーサインイン後のヘッダー-->
         <% if member_signed_in? %>
-        <li class="nav-item active">
-          <a class="nav-link"><%= link_to "グループ情報を見る", group_path(current_member.group_id) %></a>
-        </li>
+          <% if current_member.group_id %>
+            <li class="nav-item active">
+              <a class="nav-link"><%= link_to "グループ情報を見る", group_path(current_member.group_id) %></a>
+            </li>
+          <% end %>
         <li class="nav-item active">
           <a class="nav-link"><%= link_to "マイページ", members_show_path %></a>
         </li>

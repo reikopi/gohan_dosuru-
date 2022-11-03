@@ -1,14 +1,30 @@
 <h2 class="text-center">みんなの予定</h2>
 
-<h4>みんなのお知らせ</h4>
-<!--お知らせ一覧-->
-<!--< @news.each do |news| %>-->
-<!--<p>投稿者:<= news.member.name %></p>-->
-<!--<p>タイトル:<= news.title %></p>-->
-<!--<p>お知らせ内容:<= news.message %></p>-->
-<!--<p>投稿日<= news.created_at %></p>-->
-<!--< end %>-->
-<!--<= paginate news %>-->
+
+<!--お知らせの投稿があった場合に表示する-->
+<% if @news_all.present? %>
+<h4 class="text-center">★みんなのお知らせ★</h4>
+
+
+<table class="table table-dark">
+  <tr>
+    <td>投稿者</td>
+    <td>タイトル</td>
+    <td>お知らせ内容</td>
+    <td>投稿日</td>
+  </tr>
+  <tbody>
+ <% @news_all.each do |news| %>
+      <tr>
+      <td><%= news.member.name %></td>
+      <td><%= news.title %></td>
+      <td><%= news.message %></td>
+      <td><%= news.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+ <% end %>
+ <%= paginate @news_all %>
+  </tbody>
+</table>
+<% end %>
 
 
 <div class="container px-5 px-sm-0">
@@ -17,7 +33,7 @@
 
 <div class="col-md-3">
 <!--お知らせ登録-->
-<p>お知らせを投稿する</p>
+<h4>★お知らせを投稿★</h4>
 <%= form_with model: @news, url: news_create_path do |f| %>
 <p>タイトル</p>
 <%= f.text_field :title %>
@@ -31,39 +47,30 @@
 
 <div class="col-md-8 offset-md-1">
 
-<%= link_to "予定を登録する", my_schedules_path %>
+<h4>★みんなの予定★</h4>
+<%= link_to "予定を登録する", my_schedules_path, class:"btn btn-primary" %>
 
 <%= month_calendar do |date| %>
   <%= date.day %>
-  <% my_schedules = @my_schedules.search_schedule(date) %>
-  <% my_schedules.each do |my_schedule| %>
-    <p>朝食：<% if my_schedule.morning_select %>
-       <!--trueの場合-->
-       必要
-       <% else %>
-       <!--falseの場合-->
-       不要
-       <% end %>
-    </p>
-    <p>昼食：<% if my_schedule.lunch_select %>
-      <!--trueの場合-->
-       必要
-       <% else %>
-       <!--falseの場合-->
-       不要
-       <% end %>
-    </p>
-    <p>夜食：<% if my_schedule.dinner_select %>
-      <!--trueの場合-->
-       必要
-       <% else %>
-       <!--falseの場合-->
-       不要
-       <% end %>
-    </p>
-　　<%= link_to "スケジュール詳細", members_schedule_details_path %>
-    <%= my_schedule.supplement %>
-  <% end %>
+  <% my_schedules = @my_schedules&.search_schedule(date) %>
+
+    <% morning_select = @my_schedules.where(start_date: date, morning_select: true) %>
+    <% lunch_select = @my_schedules.where(start_date: date, lunch_select: true) %>
+    <% dinner_select = @my_schedules.where(start_date: date, dinner_select: true) %>
+
+
+    <% if morning_select.present? %>
+      <p>朝食:<%= morning_select.size %>名</p>
+    <% end %>
+    <% if lunch_select.present?  %>
+      <p>昼食:<%= lunch_select.size %>名</p>
+    <% end %>
+    <% if dinner_select.present?  %>
+      <p>夜食:<%= dinner_select.size %>名</p>
+    <% end %>
+    <% if morning_select.present? ||  lunch_select.present? || dinner_select.present? %>
+　　  <%= link_to "詳細", members_schedule_details_path, class:"btn btn-info" %>
+　　<% end %>
 <% end %>
 
 </div>

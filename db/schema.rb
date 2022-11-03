@@ -52,14 +52,17 @@ ActiveRecord::Schema.define(version: 2022_11_03_051519) do
 
   create_table "news", force: :cascade do |t|
     t.integer "group_id"
+    t.integer "member_id"
     t.string "title", null: false
     t.text "message", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_news_on_group_id"
+    t.index ["member_id"], name: "index_news_on_member_id"
   end
 
   add_foreign_key "members", "groups"
   add_foreign_key "my_schedules", "members"
   add_foreign_key "news", "groups"
+  add_foreign_key "news", "members"
 end
