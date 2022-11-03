@@ -13,21 +13,51 @@
   </head>
 
   <body>
-    <header>
-      <% if member_signed_in? %>
+    <header class="sticky-top"> <!--ヘッダーを画面上部へ固定-->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!--navバーの作成-->
+        <a class="navbar-brand" href="#">
+        <!--アプリケーションのiconを表示-->
+        <img src="/gohan_dosuru/app/assets/images/gohandosuru_icon.PNG" width="50" height="50" class="d-inline-block align-top" alt="">
+        <!--アプリケーション名を表示-->
+          GOHAN DOSURU?
+        </a> <!--アプリタイトル-->
+        <!--ハンバーガーメニューの作成-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
       <!--メンバーサインイン後のヘッダー-->
-      <li><%= link_to "グループ情報を見る", group_path(current_member.group_id) %></li>
-      <li><%= link_to "マイページ", members_show_path %></li>
-      <li><%= link_to "マイスケジュール", my_schedules_path %></li>
-      <li><%= link_to "みんなの予定", members_schedules_path %></li>
-      <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
+        <% if member_signed_in? %>
+        <li class="nav-item active">
+          <a class="nav-link"><%= link_to "グループ情報を見る", group_path(current_member.group_id) %></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"><%= link_to "マイページ", members_show_path %></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"><%= link_to "マイスケジュール", my_schedules_path %></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"><%= link_to "みんなの予定", members_schedules_path %></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></a>
+        </li>
 
-      <% else %>
-      <!--メンバーログアウト後のヘッダー-->
-      <li><%= link_to "メンバーログイン", new_member_session_path %></li>
-      <li><%= link_to "新規メンバー登録", new_member_registration_path %></li>
-      <% end %>
-
+        <% else %>
+        <!--メンバーログアウト後のヘッダー-->
+        <li class="nav-item active">
+          <a class="nav-link"><%= link_to "メンバーログイン", new_member_session_path %></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"><%= link_to "新規メンバー登録", new_member_registration_path %></a>
+        </li>
+        <% end %>
+        </ul>
+      </div>
+　    </nav>
     </header>
 
     <%= yield %>

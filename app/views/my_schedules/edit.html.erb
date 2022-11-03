@@ -1,39 +1,63 @@
-<h1>スケジュール編集</h1>
+<h2 class="text-center">スケジュール編集</h2>
 
 <!--登録したスケジュールを編集する機能-->
-
+<div class="text-center">
 <%= form_with model: @my_schedule, url: my_schedule_path, method: :patch do |f| %>
 
-<p>日付を選択</p>
-<div class ="input-date">
-  <%= f.date_field :start_date %>
-</div>
+<table class="table">
+  <tbody>
 
-<p>スケジュールを選択</p>
-<p>◆朝食はいる？</p>
-<div name="morning_select">
-  <%= f.radio_button :morning_select, true %>
-  <%= f.label :morning_select, "必要" %>
-  <%= f.radio_button :morning_select, false %>
-  <%= f.label :morning_select, "不要" %>
-</div>
+   <tr>
+     <th class="table-active">日付を選択</th>
+     <th>
+       <div class ="input-date">
+       <%= f.date_field :start_date %>
+       </div>
+      </th>
+   </tr>
+
+   <tr>
+     <th class="table-active">◆朝食はいる？</th>
+     <th>
+       <%= f.radio_button :morning_select, true %>
+       <%= f.label :morning_select, "必要" %>
+       <%= f.radio_button :morning_select, false %>
+       <%= f.label :morning_select, "不要" %>
+      </th>
+   </tr>
+
+   <tr>
+     <th class="table-active">◆昼食はいる？</th>
+     <th>
+       <%= f.radio_button :lunch_select, true %>
+       <%= f.label :lunch_select, "必要" %>
+       <%= f.radio_button :lunch_select, false %>
+       <%= f.label :lunch_select, "不要" %>
+     </th>
+   </tr>
 
 
-<p>◆昼食はいる？</p>
-<%= f.radio_button :lunch_select, true %>
-<%= f.label :lunch_select, "必要" %>
-<%= f.radio_button :lunch_select, false %>
-<%= f.label :lunch_select, "不要" %>
+   <tr>
+     <th class="table-active">◆夕食はいる？</th>
+     <th>
+       <%= f.radio_button :dinner_select, true %>
+       <%= f.label :dinner_select, "必要" %>
+       <%= f.radio_button :dinner_select, false %>
+       <%= f.label :dinner_select, "不要" %>
+      </th>
+   </tr>
 
-<p>◆夕食はいる？</p>
-<%= f.radio_button :dinner_select, true %>
-<%= f.label :dinner_select, "必要" %>
-<%= f.radio_button :dinner_select, false %>
-<%= f.label :dinner_select, "不要" %>
+   <tr>
+     <th class="table-active">◆コメント記入</th>
+     <th>
+       <%= f.text_area :supplement %>
+      </th>
+   </tr>
 
-<p>◆コメント記入</p>
-<%= f.text_area :supplement %>
-
+   </tbody>
+</table>
 <!--スケジュールの変更-->
 <%= f.submit 'スケジュールを変更する', class:"btn btn-primary" %>
 <% end %>
+
+</div>

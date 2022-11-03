@@ -1,17 +1,17 @@
-<h1>グループ情報</h1>
+<h2 class="text-center">グループ情報</h2>
 
-<table>
+<table class="table">
   <tbody>
     <tr>
-      <th>グループ名</th>
+      <th class="table-active"><div class="text-center">グループ名</div></th>
       <th><%= @group.group_name %></th>
     </tr>
     <tr>
-      <th>グループID</th>
+      <th class="table-active"><div class="text-center">グループID</div></th>
       <th><%= @group.group_code %></th>
     </tr>
     <tr>
-      <th>グループメンバー</th>
+      <th class="table-active"><div class="text-center">グループメンバー</div></th>
       <th>
         <% @members.each do |member| %>
         <%= member.name %>

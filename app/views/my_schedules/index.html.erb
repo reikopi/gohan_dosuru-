@@ -2,47 +2,71 @@
 <!--・スケジュールの登録-->
 <!--をするページ-->
 
-<h1>マイスケジュール</h1>
+<h2 class="text-center">マイスケジュール</h2>
 
+<div class="container px-5 px-sm-0">
+<div class="row">
+
+
+<div class="col-md-3">
 <!--スケジュールを登録する機能-->
 <h4>スケジュール登録</h4>
 <%= form_with model: @my_schedule do |f| %>
 
-<p>日付を選択</p>
-<div class ="input-date">
-  <%= f.date_field :start_date %>
-</div>
+<table class="table">
+  <tbody>
 
-<p>スケジュールを選択</p>
-<p>◆朝食はいる？</p>
-<div name="morning_select">
-  <%= f.radio_button :morning_select, true %>
-  <%= f.label :morning_select, "必要" %>
-  <%= f.radio_button :morning_select, false %>
-  <%= f.label :morning_select, "不要" %>
-</div>
+    <tr><th class="table-warning">日付を選択</th></tr>
+    <tr>
+      <td><div class ="input-date">
+          <%= f.date_field :start_date %>
+          </div>
+      </td>
+    </tr>
 
+    <tr>
+      <th class="table-warning">◆朝食はいる？</th>
+      <td><%= f.radio_button :morning_select, true %>
+          <%= f.label :morning_select, "必要" %>
+          <%= f.radio_button :morning_select, false %>
+          <%= f.label :morning_select, "不要" %>
+      </td>
+    </tr>
 
-<p>◆昼食はいる？</p>
-<%= f.radio_button :lunch_select, true %>
-<%= f.label :lunch_select, "必要" %>
-<%= f.radio_button :lunch_select, false %>
-<%= f.label :lunch_select, "不要" %>
+    <tr>
+      <th class="table-warning">◆昼食はいる？</th>
+      <td><%= f.radio_button :lunch_select, true %>
+          <%= f.label :lunch_select, "必要" %>
+          <%= f.radio_button :lunch_select, false %>
+          <%= f.label :lunch_select, "不要" %>
+      </td>
+    </tr>
 
-<p>◆夕食はいる？</p>
-<%= f.radio_button :dinner_select, true %>
-<%= f.label :dinner_select, "必要" %>
-<%= f.radio_button :dinner_select, false %>
-<%= f.label :dinner_select, "不要" %>
+    <tr>
+      <th class="table-warning">◆夕食はいる？</th>
+      <td><%= f.radio_button :dinner_select, true %>
+          <%= f.label :dinner_select, "必要" %>
+          <%= f.radio_button :dinner_select, false %>
+          <%= f.label :dinner_select, "不要" %>
+      </td>
+    </tr>
 
-<p>◆コメント記入</p>
-<%= f.text_area :supplement %>
+    <tr>
+      <th class="table-warning">◆コメント記入</th>
+      <td><%= f.text_area :supplement %>
+      </td>
+    </tr>
 
+  </tbody>
+</table>
 <!--スケジュールの登録-->
 <%= f.submit 'スケジュールを登録する', class:"btn btn-primary" %>
 <% end %>
 
+</div>
 
+
+<div class="col-md-8 offset-md-1">
 <!--月ごとの自分のスケジュールカレンダー-->
 <%= month_calendar do |date| %>
   <%= date.day %>
@@ -74,4 +98,8 @@
     </p>
   <% end %>
 <% end %>
+</div>
+
+</div>
+</div>
 

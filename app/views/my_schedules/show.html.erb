@@ -1,16 +1,20 @@
-<h1><%= @member.name %>のスケジュール詳細</h1>
-<%= link_to "スケジュールを編集する", edit_my_schedule_path %>
-<%= link_to "スケジュールを削除する", my_schedule_path(@my_schedule.id), method: :delete, data: {confirm: "本当に消してよろしいですか？"} %>
-<table class="table table-bordered">
+<h2 class="text-center"><%= @member.name %>のスケジュール詳細</h2>
+
+<div class="row justify-content-center">
+<%= link_to "スケジュールを編集する", edit_my_schedule_path, class:"btn btn-primary" %>
+<%= link_to "スケジュールを削除する", my_schedule_path(@my_schedule.id), method: :delete, data: {confirm: "本当に消してよろしいですか？"}, class:"btn btn-dark" %>
+</div>
+
+<table class="table">
     <tbody>
 
     <tr>
-        <th>日付</th>
+        <th class="table-active"><div class="text-center">日付</div></th>
         <th><%= @my_schedule.start_date %></th>
     </tr>
 
     <tr>
-        <th>スケジュール</th>
+        <th class="table-active"><div class="text-center">スケジュール</div></th>
         <th>
             朝食：<% if @my_schedule.morning_select %>
        <!--trueの場合-->
@@ -19,6 +23,7 @@
        <!--falseの場合-->
        不要
        <% end %>
+       </br>
        昼食：<% if @my_schedule.lunch_select %>
       <!--trueの場合-->
        必要
@@ -26,7 +31,7 @@
        <!--falseの場合-->
        不要
        <% end %>
-
+      </br>
       夜食：<% if @my_schedule.dinner_select %>
       <!--trueの場合-->
        必要
@@ -38,7 +43,7 @@
     </tr>
 
     <tr>
-        <th>コメント</th>
+        <th class="table-active"><div class="text-center">コメント</div></th>
         <th><%= @my_schedule.supplement %></th>
     </tr>
 　　 </tbody>

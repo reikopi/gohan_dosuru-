@@ -3,8 +3,8 @@
 <!--< my_schedules = @my_schedules.search_schedule(date) %>-->
 <!--投稿した日に限定してみんなのスケジュールを表示したい-->
 
-
-  <% @my_schedules.each do |my_schedule| %>
+  <% my_schedules = @my_schedules.search_schedule(date) %>
+  <% my_schedules.each do |my_schedule| %>
     <p>メンバー名:<%= my_schedule.member.name %></p>
     <p>朝食：<% if my_schedule.morning_select %>
        <!--trueの場合-->

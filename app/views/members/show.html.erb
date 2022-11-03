@@ -1,22 +1,22 @@
 <!--自分のmember登録情報を確認、編集するページ-->
 
-<h1>マイページ</h1>
+<h2 class="text-center">マイページ</h2>
 
 <table class="table">
   <tbody>
   <tr>
-    <th>あなたの名前</th>
+    <th class="table-active"><div class="text-center">あなたの名前</div></th>
     <th><%= current_member.name %></th>
     <th></th>
   </tr>
   <tr>
-    <th>所属グループ</th>
+    <th class="table-active"><div class="text-center">所属グループ</div></th>
     <th><%= @group.group_name %></th>
     <th></th>
   </tr>
   <tr>
-    <th>メンバーカラー</th>
-    <th><%= current_member.color %></th>
+    <th class="table-active"><div class="text-center">メールアドレス</div></th>
+    <th><%= current_member.email %></th>
     <th></th>
   </tr>
   </tbody>

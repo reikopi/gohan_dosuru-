@@ -38,9 +38,9 @@ class GroupsController < ApplicationController
   end
 
   def show
-    #グループを探す
+    #現在参加しているグループの情報を探す
     @group = current_member.group
-
+    #グループのメンバーを探す
     @members = Member.where(group_id: current_member.group)
   end
 
