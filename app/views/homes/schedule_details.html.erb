@@ -1,34 +1,51 @@
-<p>"日付情報"の内容</p>
+<h2 class="text-center">スケジュール一覧</h2>
 <!--いろんなメンバーのその日に投稿したスケジュールが見れるようにしたい。-->
 <!--< my_schedules = @my_schedules.search_schedule(date) %>-->
 <!--投稿した日に限定してみんなのスケジュールを表示したい-->
 
-  <% my_schedules = @my_schedules.search_schedule(Time.current.to_date) %>
-  <% my_schedules.each do |my_schedule| %>
-    <p>メンバー名:<%= my_schedule.member.name %></p>
-    <p>朝食：<% if my_schedule.morning_select %>
-       <!--trueの場合-->
-       必要
-       <% else %>
-       <!--falseの場合-->
-       不要
-       <% end %>
-    </p>
-    <p>昼食：<% if my_schedule.lunch_select %>
-      <!--trueの場合-->
-       必要
-       <% else %>
-       <!--falseの場合-->
-       不要
-       <% end %>
-    </p>
-    <p>夜食：<% if my_schedule.dinner_select %>
-      <!--trueの場合-->
-       必要
-       <% else %>
-       <!--falseの場合-->
-       不要
-       <% end %>
-    </p>
-    <%= my_schedule.supplement %>
-  <% end %>
+　<table class="table table-bordered">
+     <tr class="table-dark">
+         <td>メンバー名</td>
+         <td>朝食</td>
+         <td>昼食</td>
+         <td>夜食</td>
+         <td>コメント</td>
+     </tr>
+
+     <tbody>
+     <% my_schedules = @my_schedules.search_schedule(Time.current.to_date) %>
+     <% my_schedules.each do |my_schedule| %>
+
+
+         <tr>
+             <td><%= my_schedule.member.name %></td>
+             <td><% if my_schedule.morning_select %>
+                 <!--trueの場合-->
+                 必要
+                 <% else %>
+                 <!--falseの場合-->
+                 不要
+                 <% end %>
+             </td>
+             <td><% if my_schedule.lunch_select %>
+                 <!--trueの場合-->
+                 必要
+                 <% else %>
+                 <!--falseの場合-->
+                 不要
+                 <% end %>
+             </td>
+             <td><% if my_schedule.dinner_select %>
+                 <!--trueの場合-->
+                 必要
+                 <% else %>
+                 <!--falseの場合-->
+                  不要
+                 <% end %>
+              </td>
+             <td><%= my_schedule.supplement %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
