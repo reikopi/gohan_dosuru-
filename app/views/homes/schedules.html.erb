@@ -1,4 +1,25 @@
 <h1>みんなの予定</h1>
+
+<h4>みんなのお知らせ</h4>
+<!--お知らせ一覧-->
+<!--< @news.each do |news| %>-->
+<!--<p>投稿者:<= news.member.name %></p>-->
+<!--<p>タイトル:<= news.title %></p>-->
+<!--<p>お知らせ内容:<= news.message %></p>-->
+<!--<p>投稿日<= news.created_at %></p>-->
+<!--< end %>-->
+<!--<= paginate news %>-->
+<!--お知らせ登録-->
+<p>お知らせを投稿する</p>
+<%= form_with model: @news, url: news_create_path do |f| %>
+<p>タイトル</p>
+<%= f.text_field :title %>
+<p>内容</p>
+<%= f.text_area :message %>
+<%= f.submit 'お知らせを投稿', class:"btn btn-success" %>
+<% end %>
+
+
 <%= link_to "予定を登録する", my_schedules_path %>
 
 <%= month_calendar do |date| %>

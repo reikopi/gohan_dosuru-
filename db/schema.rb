@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_23_131158) do
+ActiveRecord::Schema.define(version: 2022_11_03_051519) do
 
   create_table "groups", force: :cascade do |t|
     t.string "group_code", null: false
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 2022_10_23_131158) do
     t.index ["member_id"], name: "index_my_schedules_on_member_id"
   end
 
+  create_table "news", force: :cascade do |t|
+    t.integer "group_id"
+    t.string "title", null: false
+    t.text "message", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_news_on_group_id"
+  end
+
   add_foreign_key "members", "groups"
   add_foreign_key "my_schedules", "members"
+  add_foreign_key "news", "groups"
 end

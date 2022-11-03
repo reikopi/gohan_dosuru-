@@ -5,8 +5,19 @@ class HomesController < ApplicationController
   end
 
   def schedules
+    #お知らせ一覧表示（５件表示後は次のページへ・ページネーション）
+    # @news = News.page(params:[page]).per(5)
+    @news = News.all
+    #お知らせ投稿機能
+    ##お知らせのcreateはnewsコントローラーへ記載
+    @news = News.new
+
+    #みんなのスケジュール表示（月毎）
     @my_schedules = MySchedule.all
   end
+
+
+
 
 #以下不安しかないので質問する。
   def schedule_details
@@ -28,4 +39,10 @@ class HomesController < ApplicationController
       redirect_to members_success_path
     end
   end
+
+  def news_params
+    params.require(:news).permit(:title, :message)
+  end
+
+
 end

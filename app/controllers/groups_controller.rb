@@ -38,8 +38,10 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
-    @group_members = GroupMember.all
+    #グループを探す
+    @group = current_member.group
+
+    @members = Member.where(group_id: current_member.group)
   end
 
   def edit

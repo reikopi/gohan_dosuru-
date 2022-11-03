@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  # get 'homes/top'
 
+  get 'news/new' => "news#new"
+  post 'news/create' => "news#create"
   resources :my_schedules, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :groups, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
@@ -19,6 +20,6 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'members/schedules', to: 'homes#schedules'
   get 'members/schedule_details', to: 'homes#schedule_details'
-  # resources :members, only: [:show, :update]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
