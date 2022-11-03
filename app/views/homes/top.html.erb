@@ -1,9 +1,15 @@
-<h1>GOHAN DOSURUへようこそ</h1>
-<p>本サイトは、日々のご飯の予定を</br>
+<h1 class="text-center">GOHAN DOSURUへようこそ</h1>
+<p  class="text-center">
+  本サイトは、日々のご飯の予定を</br>
 登録したgroupのメンバーと一緒に</br>
 共有できるアプリです。</br>
 まずはメンバー登録をしましょう！</p>
 
+<div class="row justify-content-center">
+<%= link_to 'メンバー登録をする', new_member_registration_path, class:"btn btn-primary" %>
+</div>
+<div class="row justify-content-center">
+<%= link_to 'メンバー登録がお済みの方はこちら', new_member_session_path, class:"btn btn-outline-primary" %>
+</div>
 
-<%= link_to 'メンバー登録をする', new_member_registration_path %>
-<%= link_to 'メンバーログインをする', new_member_session_path %>
+<%= image_tag "gohandosuru_cat.PNG" %>
