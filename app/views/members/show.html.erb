@@ -11,7 +11,16 @@
   </tr>
   <tr>
     <th class="table-active"><div class="text-center">所属グループ</div></th>
-    <th><%= @group.group_name %></th>
+    <th>
+      <!--グループに所属している時のみ表示-->
+      <% if member_signed_in? %>
+          <% if current_member.group_id %>
+      　　　　<%= @group.group_name %>
+      　　<% else %>
+      　　<p>未所属</p><%= link_to "グループに所属する",members_success_path, class:"btn btn-primary" %>
+          <% end %>
+      <% end %>
+    </th>
     <th></th>
   </tr>
   <tr>

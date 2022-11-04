@@ -1,14 +1,13 @@
-<h1>メンバーログインありがとうございます</h1>
-<p>続けて、groupを作成しますか？</p>
+<h2 class="text-center">メンバーログイン中</h2>
+<h4 class="text-center">グループには参加しますか？</h4>
+<p class="text-center">グループに参加すると、グループに参加しているメンバーと</br>
+   スケジュールの共有ができます。</p>
 
-
-<%= link_to '新規groupを作成する', new_group_path %>
+<div class="row justify-content-center">
+<%= link_to '新規groupを作成する', new_group_path, class:"btn btn-primary" %>
 <!--どのように参加するか要検討-->
-<%= link_to 'すでにあるgroupへ参加する', join_path %>
+<%= link_to 'すでにあるgroupへ参加する', join_path, class:"btn btn-success" %>
 <!--currentmemberのページにいくようにしたい-->
-<%= link_to 'マイページへ行く', members_show_path %>
+<%= link_to 'マイページへ行く', members_show_path, class:"btn btn-info" %>
+</div>
 
-
-<p>すでにあるgroupへ参加する人は、</br>
-groupを作成した人から</br>
-IDとパスワードを教えてもらってね</p>

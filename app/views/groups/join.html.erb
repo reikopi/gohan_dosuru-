@@ -1,17 +1,23 @@
-<h1>グループへ参加する</h1>
+<h2 class="text-center">グループへ参加する</h2>
 <%= form_with url: join_path, method: :post do |f| %>
 <table class="table">
   <tbody>
     <tr>
-      <th>グループID</th>
+      <th><div class="text-center">グループID</div></th>
       <th><%= f.text_field :group_code %></th>
     </tr>
     <tr>
-      <th>グループパスワード</th>
+      <th><div class="text-center">グループパスワード</div></th>
       <th><%= f.password_field :password %></th>
     </tr>
   </tbody>
 </table>
 
+<div class="row justify-content-center">
 <%= f.submit 'グループへ参加する', class:"btn btn-success" %>
 <% end %>
+</div>
+
+<p class="text-center">すでにあるgroupへ参加する人は、</br>
+groupを作成した人から</br>
+IDとパスワードを教えてもらってね</p>

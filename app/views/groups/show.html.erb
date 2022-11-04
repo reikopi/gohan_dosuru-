@@ -23,8 +23,9 @@
       <th><%= link_to "グループを退会する", withdrawal_path, method: :patch, class:"btn btn-danger", data: {confirm: "本当に退会しますか？"} %></th>
     </tr>
 
-    <% if current_member.group.admin_member_id == current_member.id %>
+    <!--グループのadminのみの機能-->
     <!--グループメンバーが退会した時などに使用-->
+    <% if current_member.group.admin_member_id == current_member.id %>
     <tr>
       <th class="table-active"><div class="text-center">グループ招待パスワード変更</div></th>
       <th>

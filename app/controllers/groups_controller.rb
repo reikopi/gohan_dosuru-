@@ -62,13 +62,13 @@ class GroupsController < ApplicationController
     # 退会するmemberがadminだった場合
     if current_member.group.admin_member_id == current_member.id
     # groupのadmin_member_id（管理者）を不在にする(そして誰もグループには入れなくなる)
-      current_member.group.admin_member_id = nil
-      redirect_to members_success_path
+      current_member.group.admin_member_id ||= nil
+      @members = Member.where(group_id: current_member.group).update(group_id: nil)
     end
     # 退会するmemberがadmin以外の場合
     # memberが持っていたgroup_idをカラにする
     current_member.update(group_id: nil)
-    # current_member.group_id = nil
+    # 退会後、グループ作成画面へ行く
     redirect_to members_success_path
 
   end
