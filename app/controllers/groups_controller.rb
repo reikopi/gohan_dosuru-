@@ -51,7 +51,7 @@ class GroupsController < ApplicationController
     #現在参加しているグループの情報を探す
     @group = current_member.group
     @group.update(password: params[:group][:password])
-    redirect_to group_path
+    redirect_to group_path, notice: 'パスワードを変更しました'
   end
 
   def destroy

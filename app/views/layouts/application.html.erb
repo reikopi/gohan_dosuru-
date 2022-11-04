@@ -62,7 +62,18 @@
 　    </nav>
     </header>
 
+
+
+    <main>
+    <!--フラッシュメッセージの実装-->
+    <% if flash[:notice] %>
+     <p class="alert alert-success"><%= notice %></p>
+    <% elsif flash[:alert] %>
+     <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
+    </main>
     <footer>
       <!--アプリのロゴ画像-->
       <%= image_tag "gohandosuru_logo.PNG" %>

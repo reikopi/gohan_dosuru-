@@ -19,7 +19,7 @@
       </th>
     </tr>
     <tr>
-      <th class="table-active"><div class="text-center">グループメンバー</div></th>
+      <th class="table-active"><div class="text-center">グループ退会</div></th>
       <th><%= link_to "グループを退会する", withdrawal_path, method: :patch, class:"btn btn-danger", data: {confirm: "本当に退会しますか？"} %></th>
     </tr>
 
@@ -27,10 +27,12 @@
     <!--グループメンバーが退会した時などに使用-->
     <% if current_member.group.admin_member_id == current_member.id %>
     <tr>
-      <th class="table-active"><div class="text-center">グループ招待パスワード変更</div></th>
+      <th class="table-active"><div class="text-center">グループ参加パスワード変更</div></th>
       <th>
         <%= form_with model: @group, url:group_path, method: :patch do |f| %>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, id: "pass" %>
+        <input type="checkbox" onChange="document.getElementById('pass').type = (this.checked) ? 'text' : 'password';">
+        パスワードを表示する
         <%= f.submit "パスワードを変更する", class:"btn btn-success" %>
         <% end %>
       </th>

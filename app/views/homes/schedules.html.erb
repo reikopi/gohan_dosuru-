@@ -34,6 +34,17 @@
 <div class="col-md-3">
 <!--お知らせ登録-->
 <h4>★お知らせを投稿★</h4>
+<%# if @news.errors.any? %>
+  <%#= @news.errors.count %>
+  <!--件のエラーが発生しました-->
+  <!--<ul>-->
+    <%# @news.errors.full_messages.each do |message| %>
+      <!--<li>-->
+        <%#= message %>
+        <!--</li>-->
+    <%# end %>
+  <!--</ul>-->
+<%# end %>
 <%= form_with model: @news, url: news_create_path do |f| %>
 <p>タイトル</p>
 <%= f.text_field :title %>
@@ -66,7 +77,7 @@
       <p>昼食:<%= lunch_select.size %>名</p>
     <% end %>
     <% if dinner_select.present?  %>
-      <p>夜食:<%= dinner_select.size %>名</p>
+      <p>夕食:<%= dinner_select.size %>名</p>
     <% end %>
     <% if morning_select.present? ||  lunch_select.present? || dinner_select.present? %>
 　　  <%= link_to "詳細", members_schedule_details_path(date), class:"btn btn-info" %>

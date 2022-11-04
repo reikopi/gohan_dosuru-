@@ -7,8 +7,8 @@ class HomesController < ApplicationController
 
   def schedules
     #お知らせ一覧表示（５件表示後は次のページへ・ページネーション）
-    # @news = News.page(params:[page]).per(5)
-    @news_all = @group.news.page(params[:page]).per(5)
+    #最新投稿は一番上に来るようにする
+    @news_all = @group.news.order("created_at DESC").page(params[:page]).per(5)
     #お知らせ投稿機能
     ##お知らせのcreateはnewsコントローラーへ記載
     @news = current_member.news.build # has_many -> news.build

@@ -87,14 +87,14 @@
        不要
        <% end %>
 
-      夜食：<% if my_schedule.dinner_select %>
+      夕食：<% if my_schedule.dinner_select %>
       <!--trueの場合-->
        必要
        <% else %>
        <!--falseの場合-->
        不要
        <% end %>
-       <%= link_to "詳細を見る", my_schedule_path(my_schedule.id) %>
+       <%= link_to "詳細を見る", my_schedule_path(my_schedule.id), class:"btn btn-info" %>
     </p>
   <% end %>
 <% end %>
