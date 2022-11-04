@@ -1,23 +1,26 @@
-<h2 class="text-center">スケジュール一覧</h2>
-<!--いろんなメンバーのその日に投稿したスケジュールが見れるようにしたい。-->
-<!--< my_schedules = @my_schedules.search_schedule(date) %>-->
-<!--投稿した日に限定してみんなのスケジュールを表示したい-->
-
+<h2 class="text-center"><%= @day_params %>のスケジュール一覧</h2>
+<div class="row justify-content-center">
+<%= link_to "みんなの予定に戻る", members_schedules_path, class:"btn btn-info" %>
+</div>
 　<table class="table table-bordered">
      <tr class="table-dark">
+         <td>日付</td>
          <td>メンバー名</td>
          <td>朝食</td>
          <td>昼食</td>
          <td>夜食</td>
          <td>コメント</td>
+         <td>確認OK？</td>
      </tr>
 
      <tbody>
-     <% my_schedules = @my_schedules.search_schedule(Time.current.to_date) %>
+     <% my_schedules = @my_schedules.search_schedule(@day_params) %>
+     <!--< my_schedules = @my_schedules.search_schedule(Time.current.to_date) %>-->
      <% my_schedules.each do |my_schedule| %>
 
 
          <tr>
+             <td><%= my_schedule.start_date %></td>
              <td><%= my_schedule.member.name %></td>
              <td><% if my_schedule.morning_select %>
                  <!--trueの場合-->
@@ -44,6 +47,21 @@
                  <% end %>
               </td>
              <td><%= my_schedule.supplement %></td>
+             <td>
+                 <% if my_schedule.favorited_by?(current_member) %>
+                 <p>
+                 <%= link_to my_schedule_favorites_path(my_schedule.id), method: :delete do %>
+                 ♥<%= my_schedule.favorites.count %> OK
+                 <% end %>
+                 </p>
+                 <% else %>
+                 <p>
+                 <%= link_to my_schedule_favorites_path(my_schedule.id), method: :post do %>
+                 ♡<%= my_schedule.favorites.count %> OK
+                 <% end %>
+                 </p>
+                 <% end %>
+                 </td>
         </tr>
       <% end %>
     </tbody>

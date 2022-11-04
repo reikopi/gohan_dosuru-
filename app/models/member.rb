@@ -7,8 +7,9 @@ class Member < ApplicationRecord
   belongs_to :group, optional: true
   has_many :my_schedules, dependent: :destroy
   has_many :news, dependent: :destroy
-  
-  
+  has_many :favorites, dependent: :destroy
+
+
 
 
 end

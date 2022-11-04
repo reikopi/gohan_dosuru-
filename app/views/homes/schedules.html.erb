@@ -69,7 +69,7 @@
       <p>夜食:<%= dinner_select.size %>名</p>
     <% end %>
     <% if morning_select.present? ||  lunch_select.present? || dinner_select.present? %>
-　　  <%= link_to "詳細", members_schedule_details_path, class:"btn btn-info" %>
+　　  <%= link_to "詳細", members_schedule_details_path(date), class:"btn btn-info" %>
 　　<% end %>
 <% end %>
 

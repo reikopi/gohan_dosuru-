@@ -3,6 +3,7 @@
 <div class="row justify-content-center">
 <%= link_to "スケジュールを編集する", edit_my_schedule_path, class:"btn btn-primary" %>
 <%= link_to "スケジュールを削除する", my_schedule_path(@my_schedule.id), method: :delete, data: {confirm: "本当に消してよろしいですか？"}, class:"btn btn-dark" %>
+<%= link_to "マイスケジュールに戻る", my_schedules_path, class:"btn btn-info" %>
 </div>
 
 <table class="table">
@@ -46,7 +47,7 @@
         <th class="table-active"><div class="text-center">コメント</div></th>
         <th><%= @my_schedule.supplement %></th>
     </tr>
+
 　　 </tbody>
 </table>
-
-<h4>みんなからのメッセージ</h4>
+<div class="row justify-content-center">♥<%= @my_schedule.favorites.count %> OK</div>

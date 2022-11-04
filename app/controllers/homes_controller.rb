@@ -13,7 +13,7 @@ class HomesController < ApplicationController
     ##お知らせのcreateはnewsコントローラーへ記載
     @news = current_member.news.build # has_many -> news.build
     #@news = current_member.build_news # has_one -> build_news
-    #みんなのスケジュール表示（月毎）
+    #みんなのスケジュール表示（月毎集計）
     @my_schedules = @group.my_schedules
   end
 
@@ -22,11 +22,9 @@ class HomesController < ApplicationController
 
 #以下不安しかないので質問する。
   def schedule_details
-    #特定の日付を探す
-    # date = MySchedule.find(start_date)
-    ##同じ日で登録されたグループ内のスケジュールを全て表示する
-    # @my_schedules = MySchedule.where(start_date: same)
-    #一旦、他の機能を作成するのに全ての投稿を表示しておく
+    #スケジュールカレンダーから直接日付を取得する。
+    @day_params = params[:format]
+    # 同じグループに所属する人のスケジュールを取得する
     @my_schedules = @group.my_schedules
   end
 

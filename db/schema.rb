@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_03_051519) do
+ActiveRecord::Schema.define(version: 2022_11_04_073329) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "my_schedule_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string "group_code", null: false
