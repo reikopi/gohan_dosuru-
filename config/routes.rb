@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get "join" => "groups#join"
   post "join" => "groups#current_member_join"
-
+  patch "withdrawal" => "groups#withdrawal"
 
   devise_for :members,skip: [:passwords], controller: {
     registrations: "registrations",

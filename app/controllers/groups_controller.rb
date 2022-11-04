@@ -48,17 +48,28 @@ class GroupsController < ApplicationController
   end
 
   def update
+    #現在参加しているグループの情報を探す
+    @group = current_member.group
+    @group.update(password: params[:group][:password])
+    redirect_to group_path
   end
 
   def destroy
   end
 
-  def 退会メソッド
+  def withdrawal
+    # グループ退会
+    # 退会するmemberがadminだった場合
     if current_member.group.admin_member_id == current_member.id
+    # groupのadmin_member_id（管理者）を不在にする(そして誰もグループには入れなくなる)
       current_member.group.admin_member_id = nil
+      redirect_to members_success_path
     end
-
-    current_member.group_id = nil
+    # 退会するmemberがadmin以外の場合
+    # memberが持っていたgroup_idをカラにする
+    current_member.update(group_id: nil)
+    # current_member.group_id = nil
+    redirect_to members_success_path
 
   end
 

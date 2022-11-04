@@ -18,6 +18,23 @@
         <% end %>
       </th>
     </tr>
+    <tr>
+      <th class="table-active"><div class="text-center">グループメンバー</div></th>
+      <th><%= link_to "グループを退会する", withdrawal_path, method: :patch, class:"btn btn-danger", data: {confirm: "本当に退会しますか？"} %></th>
+    </tr>
+
+    <% if current_member.group.admin_member_id == current_member.id %>
+    <!--グループメンバーが退会した時などに使用-->
+    <tr>
+      <th class="table-active"><div class="text-center">グループ招待パスワード変更</div></th>
+      <th>
+        <%= form_with model: @group, url:group_path, method: :patch do |f| %>
+        <%= f.password_field :password %>
+        <%= f.submit "パスワードを変更する", class:"btn btn-success" %>
+        <% end %>
+      </th>
+    </tr>
+    <% end %>
 
   </tbody>
 </table>
