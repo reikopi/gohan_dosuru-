@@ -10,12 +10,16 @@ class NewsController < ApplicationController
       redirect_to members_schedules_path
     ##お知らせ登録後は、schedules.html（スケジュール共有）へ戻る
     else
+      # お知らせ投稿機能以外のアクションは読み込む
+      @news_all = @group.news.order("created_at DESC").page(params[:page]).per(5)
+      @my_schedules = @group.my_schedules
+      # お知らせ機能のアクションは読み込まず、バリデーションをする
       render "homes/schedules"
     end
   end
 
   def destroy
-    @news = News.find(params[:news][:id])
+    @news = News.find(params[:id])
     @news.member_id = current_member.id
     if @news.destroy
     redirect_to members_schedules_path

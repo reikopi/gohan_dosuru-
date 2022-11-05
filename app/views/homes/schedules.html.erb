@@ -10,7 +10,7 @@
   <tr>
     <td>投稿者</td>
     <td>タイトル</td>
-    <td>お知らせ内容</td>
+    <td>メッセージ</td>
     <td>投稿日</td>
     <td></td>
   </tr>
@@ -21,9 +21,10 @@
       <td><%= news.title %></td>
       <td><%= news.message %></td>
       <td><%= news.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-      <td><%# if news.id = current_member.news_id %>
-          <%= link_to "投稿を削除する", news_create_path(news.id), method: :delete, data: {confirm: "本当に消してよろしいですか？"}, class:"btn btn-dark" %></td>
-          <%# end %>
+      <!--投稿した本人の場合のみ投稿削除可能-->
+      <td><% if news.member == current_member %>
+          <%= link_to "投稿を削除する", news_path(news.id), method: :delete, data: {confirm: "本当に消してよろしいですか？"}, class:"btn btn-dark" %></td>
+          <% end %>
  <% end %>
  <%= paginate @news_all %>
   </tbody>
@@ -36,23 +37,23 @@
 
 
 <div class="col-md-3">
-<!--お知らせ登録-->
+
 <h4>★お知らせを投稿★</h4>
-<%# if @news.errors.any? %>
-  <%#= @news.errors.count %>
-  <!--件のエラーが発生しました-->
-  <!--<ul>-->
-    <%# @news.errors.full_messages.each do |message| %>
-      <!--<li>-->
-        <%#= message %>
-        <!--</li>-->
-    <%# end %>
-  <!--</ul>-->
-<%# end %>
-<%= form_with model: @news, url: news_create_path do |f| %>
+<% if @news.errors.any? %>
+  <%= @news.errors.count %>
+  件のエラーが発生しました
+  <ul>
+    <% @news.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+        </li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @news, url: news_index_path do |f| %>
 <p>タイトル</p>
 <%= f.text_field :title %>
-<p>内容</p>
+<p>メッセージ</p>
 <%= f.text_area :message %>
 <%= f.submit 'お知らせを投稿', class:"btn btn-success" %>
 <% end %>

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'news/new' => "news#new"
-  post 'news/create' => "news#create"
-  delete 'news/:id' => "news#destroy"
+  # get 'news/new' => "news#new"
+  # post 'news/create' => "news#create"
+  # delete 'news/:id/destroy' => "news#destroy"
+  resources :news, only: [:new, :create, :destroy]
 
   resources :my_schedules, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
   resource :favorites, only: [:create, :destroy]
