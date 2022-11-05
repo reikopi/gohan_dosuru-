@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
     # いいねが保存されたら
     favorite.save
     # 共有詳細ページに戻る
-    redirect_to members_schedule_details_path
+    redirect_to members_schedule_details_path(format: my_schedule.start_date)
   end
 
   def destroy
@@ -19,7 +19,7 @@ class FavoritesController < ApplicationController
     # いいねを削除する
     favorite.destroy
     # 共有詳細ページへ戻る
-    redirect_to members_schedule_details_path
+    redirect_to members_schedule_details_path(format: my_schedule.start_date)
   end
 
 end

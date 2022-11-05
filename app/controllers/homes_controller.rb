@@ -22,6 +22,7 @@ class HomesController < ApplicationController
 
 #以下不安しかないので質問する。
   def schedule_details
+    # byebug
     #スケジュールカレンダーから直接日付を取得する。
     @day_params = params[:format]
     # 同じグループに所属する人のスケジュールを取得する
