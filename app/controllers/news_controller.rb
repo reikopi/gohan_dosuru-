@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-  
+
   before_action :set_group, only: :create
   def create
     @news = @group.news.build(news_params)
@@ -14,13 +14,23 @@ class NewsController < ApplicationController
     end
   end
 
+  def destroy
+    @news = News.find(params[:news][:id])
+    @news.member_id = current_member.id
+    if @news.destroy
+    redirect_to members_schedules_path
+    else
+      render "homes/schedules"
+    end
+  end
+
 
   private
-  
+
   def news_params
     params.require(:news).permit(:title, :message)
   end
-  
+
   def set_group
     @group = current_member.group
   end

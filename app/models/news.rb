@@ -3,6 +3,6 @@ class News < ApplicationRecord
   belongs_to :member
 
   # validates :title, presence: true
-  validates :message, presence: true
+  # validates :message, presence: true
 
 end

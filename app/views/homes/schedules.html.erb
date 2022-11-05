@@ -12,6 +12,7 @@
     <td>タイトル</td>
     <td>お知らせ内容</td>
     <td>投稿日</td>
+    <td></td>
   </tr>
   <tbody>
  <% @news_all.each do |news| %>
@@ -20,6 +21,9 @@
       <td><%= news.title %></td>
       <td><%= news.message %></td>
       <td><%= news.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+      <td><%# if news.id = current_member.news_id %>
+          <%= link_to "投稿を削除する", news_create_path(news.id), method: :delete, data: {confirm: "本当に消してよろしいですか？"}, class:"btn btn-dark" %></td>
+          <%# end %>
  <% end %>
  <%= paginate @news_all %>
   </tbody>
