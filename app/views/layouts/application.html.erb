@@ -17,7 +17,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!--navバーの作成-->
         <a class="navbar-brand" href="#">
         <!--アプリケーションのiconを表示-->
-        <img src="/gohan_dosuru/app/assets/images/gohandosuru_icon.PNG" width="50" height="50" class="d-inline-block align-top" alt="">
+        <%= image_tag "gohandosuru_icon.png", width: "10%" %>
         <!--アプリケーション名を表示-->
           GOHAN DOSURU?
         </a> <!--アプリタイトル-->
@@ -32,11 +32,11 @@
         <% if member_signed_in? %>
           <% if current_member.group_id %>
             <li class="nav-item active">
-              <a class="nav-link"><%= link_to "グループ情報を見る", group_path(current_member.group_id) %></a>
+              <%= link_to "グループ情報を見る", group_path(current_member.group_id), class: "nav-link" %>
             </li>
           <% end %>
         <li class="nav-item active">
-          <a class="nav-link"><%= link_to "マイページ", members_show_path %></a>
+          <%= link_to "マイページ", members_show_path, class: "nav-link" %>
         </li>
         <li class="nav-item active">
           <a class="nav-link"><%= link_to "マイスケジュール", my_schedules_path %></a>
@@ -76,7 +76,7 @@
     </main>
     <footer>
       <!--アプリのロゴ画像-->
-      <%= image_tag "gohandosuru_logo.PNG" %>
+      <%= image_tag "gohandosuru_logo.png" %>
     </footer>
   </body>
 </html>

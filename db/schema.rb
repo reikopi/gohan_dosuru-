@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_04_073329) do
+ActiveRecord::Schema.define(version: 2022_11_05_074902) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "member_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2022_11_04_073329) do
     t.integer "admin_member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "deleted", default: false, null: false
     t.index ["group_code"], name: "index_groups_on_group_code", unique: true
   end
 

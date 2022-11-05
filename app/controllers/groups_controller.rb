@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
 
   # 修正する
   def current_member_join # joinで入力した値に応じて、ログインしたメンバーをグループに参加させる
-    @group = Group.find_by(group_code: params[:group_code], password: params[:password])
+    @group = Group.find_by(group_code: params[:group_code], password: params[:password], deleted: false)
 
     if @group.present?
       # グループが見つかった場合
@@ -62,7 +62,8 @@ class GroupsController < ApplicationController
     # 退会するmemberがadminだった場合
     if current_member.group.admin_member_id == current_member.id
     # groupのadmin_member_id（管理者）を不在にする(そして誰もグループには入れなくなる)
-      current_member.group.admin_member_id ||= nil
+      current_member.group.update(deleted: true)
+
       @members = Member.where(group_id: current_member.group).update(group_id: nil)
     end
     # 退会するmemberがadmin以外の場合
