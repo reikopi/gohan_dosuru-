@@ -16,7 +16,7 @@
     <header class="sticky-top"> <!--ヘッダーを画面上部へ固定-->
       <nav class="navbar navbar-expand-lg navbar-dark bg-warning"> <!--navバーの作成-->
         <!--アプリケーションのiconを表示-->
-        <%= image_tag "gohandosuru_icon.png", width: "10%" %>
+        <%= image_tag "gohandosuru_icon.png", width: "5%" %>
         <!--アプリケーション名を表示-->
           <%= link_to "GOHAN DOSURU?", root_path,class: "navbar-brand" %>
         <!--ハンバーガーメニューの作成-->
@@ -62,7 +62,7 @@
 
 
 
-    <main>
+    <main class="bg-white text-muted">
     <!--フラッシュメッセージの実装-->
     <% if flash[:notice] %>
      <p class="alert alert-success"><%= notice %></p>
@@ -72,7 +72,7 @@
 
     <%= yield %>
     </main>
-    <footer class="bg-dark text-white pt-5 pb-4">
+    <footer class="bg-dark text-white mt-5 pt-5 pb-4">
       <!--アプリのロゴ画像-->
       <div class="row justify-content-center">
       <%= image_tag "gohandosuru_logo.png", width: "20%"  %>

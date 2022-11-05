@@ -1,9 +1,9 @@
-<h2 class="text-center">みんなの予定</h2>
+<h2 class="text-center py-3">みんなの予定</h2>
 
 
 <!--お知らせの投稿があった場合に表示する-->
 <% if @news_all.present? %>
-<h4 class="text-center">★みんなのお知らせ★</h4>
+<h4 class="text-center my-3">★みんなのお知らせ★</h4>
 
 
 <table class="table table-dark">
@@ -38,7 +38,7 @@
 
 <div class="col-md-3">
 
-<h4>★お知らせを投稿★</h4>
+<h4 class="mt-5">★お知らせを投稿★</h4>
 <% if @news.errors.any? %>
   <%= @news.errors.count %>
   件のエラーが発生しました
@@ -55,7 +55,7 @@
 <%= f.text_field :title %>
 <p>メッセージ</p>
 <%= f.text_area :message %>
-<%= f.submit 'お知らせを投稿', class:"btn btn-success" %>
+<%= f.submit 'お知らせを投稿', class:"btn btn-success my-2" %>
 <% end %>
 
 </div>
@@ -63,8 +63,8 @@
 
 <div class="col-md-8 offset-md-1">
 
-<h4>★みんなの予定★</h4>
-<%= link_to "予定を登録する", my_schedules_path, class:"btn btn-primary" %>
+<h4 class="mt-5">★みんなの予定★</h4>
+<%= link_to "予定を登録する", my_schedules_path, class:"btn btn-primary my-2" %>
 
 <%= month_calendar do |date| %>
   <%= date.day %>

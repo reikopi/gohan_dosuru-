@@ -1,4 +1,4 @@
-<h2 class="text-center">グループ情報</h2>
+<h2 class="text-center pt-3">グループ情報</h2>
 
 <table class="table">
   <tbody>
@@ -32,8 +32,8 @@
         <%= form_with model: @group, url:group_path, method: :patch do |f| %>
         <%= f.password_field :password, id: "pass" %>
         <input type="checkbox" onChange="document.getElementById('pass').type = (this.checked) ? 'text' : 'password';">
-        パスワードを表示する
-        <%= f.submit "パスワードを変更する", class:"btn btn-success" %>
+        パスワードを表示する</br>
+        <%= f.submit "パスワードを変更する", class:"btn btn-success mt-3" %>
         <% end %>
       </th>
     </tr>

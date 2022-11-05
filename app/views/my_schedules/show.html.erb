@@ -1,9 +1,9 @@
-<h2 class="text-center"><%= @member.name %>のスケジュール詳細</h2>
+<h2 class="text-center pt-3"><%= @member.name %>のスケジュール詳細</h2>
 
 <div class="row justify-content-center">
-<%= link_to "スケジュールを編集する", edit_my_schedule_path, class:"btn btn-primary" %>
-<%= link_to "スケジュールを削除する", my_schedule_path(@my_schedule.id), method: :delete, data: {confirm: "本当に消してよろしいですか？"}, class:"btn btn-dark" %>
-<%= link_to "マイスケジュールに戻る", my_schedules_path, class:"btn btn-info" %>
+<%= link_to "スケジュールを編集する", edit_my_schedule_path, class:"btn btn-primary mb-3" %>
+<%= link_to "スケジュールを削除する", my_schedule_path(@my_schedule.id), method: :delete, data: {confirm: "本当に消してよろしいですか？"}, class:"btn btn-dark ml-3 mb-3" %>
+<%= link_to "マイスケジュールに戻る", my_schedules_path, class:"btn btn-info ml-3 mb-3" %>
 </div>
 
 <table class="table">
@@ -50,4 +50,4 @@
 
 　　 </tbody>
 </table>
-<div class="row justify-content-center">♥<%= @my_schedule.favorites.count %> OK</div>
+<div class="row justify-content-center  mb-3">♥<%= @my_schedule.favorites.count %> OK</div>

@@ -2,7 +2,7 @@
 <!--・スケジュールの登録-->
 <!--をするページ-->
 
-<h2 class="text-center">マイスケジュール</h2>
+<h2 class="text-center py-3">マイスケジュール</h2>
 
 <div class="container px-5 px-sm-0">
 <div class="row">
@@ -10,7 +10,7 @@
 
 <div class="col-md-3">
 <!--スケジュールを登録する機能-->
-<h4>スケジュール登録</h4>
+<h4 class="pb-3">スケジュール登録</h4>
 <%= form_with model: @my_schedule do |f| %>
 
 <table class="table">
@@ -72,29 +72,30 @@
   <%= date.day %>
   <% my_schedules = @my_schedules.search_schedule(date) %>
   <% my_schedules.each do |my_schedule| %>
-    <p>朝食：<% if my_schedule.morning_select %>
+    <p class="h6">朝：<% if my_schedule.morning_select %>
        <!--trueの場合-->
        必要
        <% else %>
        <!--falseの場合-->
        不要
        <% end %>
-       昼食：<% if my_schedule.lunch_select %>
+       </br>
+       昼：<% if my_schedule.lunch_select %>
       <!--trueの場合-->
        必要
        <% else %>
        <!--falseの場合-->
        不要
        <% end %>
-
-      夕食：<% if my_schedule.dinner_select %>
+      </br>
+      夕：<% if my_schedule.dinner_select %>
       <!--trueの場合-->
        必要
        <% else %>
        <!--falseの場合-->
        不要
        <% end %>
-       <%= link_to "詳細を見る", my_schedule_path(my_schedule.id), class:"btn btn-info" %>
+       <%= link_to "詳細を見る", my_schedule_path(my_schedule.id), class:"btn btn-info mt-3" %>
     </p>
   <% end %>
 <% end %>

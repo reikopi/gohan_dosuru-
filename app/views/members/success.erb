@@ -1,13 +1,13 @@
-<h2 class="text-center">メンバーログイン中</h2>
-<h4 class="text-center">グループには参加しますか？</h4>
+<h2 class="text-center pt-3">★メンバーログイン中★</h2>
+<h4 class="text-center py-5">グループには参加しますか？</h4>
 <p class="text-center">グループに参加すると、グループに参加しているメンバーと</br>
    スケジュールの共有ができます。</p>
 
 <div class="row justify-content-center">
-<%= link_to '新規グループを作成する', new_group_path, class:"btn btn-primary" %>
+<%= link_to '新規グループを作成する', new_group_path, class:"btn btn-primary mb-3" %>
 <!--どのように参加するか要検討-->
-<%= link_to 'すでにあるグループへ参加する', join_path, class:"btn btn-success" %>
+<%= link_to 'すでにあるグループへ参加する', join_path, class:"btn btn-success ml-3 mb-3 " %>
 <!--currentmemberのページにいくようにしたい-->
-<%= link_to 'マイページへ行く', members_show_path, class:"btn btn-info" %>
+<%= link_to 'マイページへ行く', members_show_path, class:"btn btn-info ml-3 mb-3" %>
 </div>
 
