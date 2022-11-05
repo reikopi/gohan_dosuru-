@@ -28,5 +28,10 @@
     <th><%= current_member.email %></th>
     <th></th>
   </tr>
+  <tr>
+    <th class="table-active"><div class="text-center">メンバー退会フォーム</div></th>
+    <th><%= link_to "メンバーを退会する", member_registration_path, method: :delete, data: {confirm: "本当に退会してよろしいですか？"}, class: "btn btn-danger"  %></th>
+    <th></th>
+  </tr>
   </tbody>
 </table>
