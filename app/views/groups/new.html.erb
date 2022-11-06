@@ -1,4 +1,4 @@
-<h2 class="text-center">新規グループ作成</h2>
+<h2 class="text-center py-5">新規グループ作成</h2>
 <div class="row justify-content-center">
 <% if @group.errors.any? %>
   <%= @group.errors.count %>件のエラーが発生しました
@@ -20,9 +20,9 @@
 <p>グループパスワード</p>
 <%= f.password_field :password %>
 
-<%= f.submit '新規グループを作成する', class:"btn btn-success" %>
+<%= f.submit '新規グループを作成する', class:"btn btn-success ml-5" %>
 <% end %>
 </div>
 <div class="row justify-content-center">
-<%= link_to "戻る",members_success_path, class:"btn btn-primary" %>
+<%= link_to "戻る",members_success_path, class:"btn btn-primary mt-5" %>
 </div>
