@@ -70,7 +70,7 @@ class GroupsController < ApplicationController
     # memberが持っていたgroup_idをカラにする
     current_member.update(group_id: nil)
     # 退会後、グループ作成画面へ行く
-    redirect_to members_success_path
+    redirect_to members_success_path, alert: 'グループを退会しました'
 
   end
 
