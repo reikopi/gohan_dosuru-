@@ -15,7 +15,7 @@
       <!--グループに所属している時のみ表示-->
       <% if member_signed_in? %>
           <% if current_member.group_id %>
-      　　　　<%= @group.group_name %>
+      　　　<p class="text-left"><%= @group.group_name %></p>
       　　<% else %>
       　　<p>未所属</p><%= link_to "グループに所属する",members_success_path, class:"btn btn-primary" %>
           <% end %>
@@ -30,7 +30,14 @@
   </tr>
   <tr>
     <th class="table-active"><div class="text-center">メンバー退会フォーム</div></th>
-    <th><%= link_to "メンバーを退会する", member_registration_path, method: :delete, data: {confirm: "本当に退会してよろしいですか？"}, class: "btn btn-danger"  %></th>
+    <th>
+      <% if member_signed_in? %>
+         <% if current_member.group_id %>
+          <%= link_to "メンバーを退会する場合は、まず、グループを退会してください。",group_path(current_member.group_id) %>
+         <% else %>
+          <%= link_to "メンバーを退会する", member_registration_path, method: :delete, data: {confirm: "本当に退会してよろしいですか？"}, class: "btn btn-danger"  %></th>
+         <% end %>
+      <% end %>
     <th></th>
   </tr>
   </tbody>
