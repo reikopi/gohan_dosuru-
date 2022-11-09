@@ -43,6 +43,7 @@
 - 一人暮らしで翌週分の作り置きをどのくらい用意すればいいか把握したい時
 
 ## 設計書
+- https://docs.google.com/spreadsheets/d/14xSYXi7NB6wKddloh6q-cWSoDHfE2fZ1t9J7GDKIfis/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -51,6 +52,3 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
