@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2022_11_05_074902) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_members_on_email", unique: true
-    t.index ["group_id"], name: "index_members_on_group_id"
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
@@ -69,7 +68,6 @@ ActiveRecord::Schema.define(version: 2022_11_05_074902) do
     t.index ["member_id"], name: "index_news_on_member_id"
   end
 
-  add_foreign_key "members", "groups"
   add_foreign_key "my_schedules", "members"
   add_foreign_key "news", "groups"
   add_foreign_key "news", "members"
