@@ -44,7 +44,7 @@
 
 ## 設計書
 **詳細設計書**<br>
-* https://docs.google.com/spreadsheets/d/14xSYXi7NB6wKddloh6q-cWSoDHfE2fZ1t9J7GDKIfis/edit?usp=sharing
+* https://docs.google.com/spreadsheets/d/14xSYXi7NB6wKddloh6q-cWSoDHfE2fZ1t9J7GDKIfis/edit?usp=sharing<br>
 **テーブル定義書**<br>
 * https://docs.google.com/spreadsheets/d/1tAjjBFnMch2emtdGSpAnhEWdJn_RREeSzG9tojhJs80/edit?usp=sharing
 ## 開発環境
