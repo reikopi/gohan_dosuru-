@@ -48,3 +48,12 @@
 
 
 )
+
+@news = News.create!(
+  [
+    {group_id: 1, member_id: 1, title: '今日の夕飯',message: '焼き肉です'},
+    {group_id: 1, member_id: 1, title: '夕飯の時間',message: '前の用事が長引いたので夕飯の時間は２０時になりそうです'},
+    {group_id: 1, member_id: 2, title: '夕飯について',message: 'スーパーに寄ったので材料を買っておきました'},
+    {group_id: 2, member_id: 8, title: '今日の夕飯',message: '風邪をひいたので各自用意してください'},
+  ]
+)
